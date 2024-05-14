@@ -1,0 +1,33 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+title OO Unit2 UML协作图
+
+actor Person as person
+actor Maintain as maintain
+actor ADD as add
+participant "MainClass" as mainclass
+participant "Input" as input
+participant "Controller" as controller
+participant "Elevator" as elevator
+
+autonumber
+mainclass --> input : 启动输入线程
+mainclass --> controller : 启动调度器线程
+mainclass --> elevator : 构造并启动电梯线程
+person -> input : 发送乘客请求
+input -> controller : 从输入线程获取乘客请求加入总等待队列
+controller -> elevator : 调度器线程将总等待队列中的乘客请求分配给电梯线程中各自的等待队列
+elevator -> elevator : 执行乘客请求
+elevator --> controller : 在自己的等待队列和电梯内的乘客为空时发送唤醒信号给调度器
+maintain -> input : 发送维修请求
+input --> elevator : 接收维修请求后将该电梯的状态设为维修中，中断调度器往该电梯分配请求，并向该电梯发送结束信号
+elevator -> controller : 若电梯状态为维修中，将电梯内的人放出加入总等待队列，并将该电梯等待队列中的请求全部放入总等待队列
+elevator --> elevator : 若电梯状态为维修中， 结束电梯线程
+add -> input : 发送增加电梯请求
+input --> elevator : 构造并启动新增的电梯线程
+input --> controller : 输入结束时发送结束信号给调度器
+input --> input : 结束输入线程
+controller --> elevator : 调度器接收结束信号后，在所有电梯的等待队列和总等待队列为空且没有乘客在电梯内后给电梯发送结束信号
+elevator --> elevator : 电梯接收结束信号后结束线程
+controller --> controller : 调度器接收结束信号，发送结束信号给所有电梯后结束线程
+@enduml

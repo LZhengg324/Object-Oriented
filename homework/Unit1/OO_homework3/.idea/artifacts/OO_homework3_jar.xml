@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="OO_homework3:jar">
+    <output-path>$USER_HOME$/Desktop/buaa_oo_unit1_xgen-master</output-path>
+    <root id="archive" name="OO_homework3.jar">
+      <element id="module-output" name="OO_homework3" />
+    </root>
+  </artifact>
+</component>
