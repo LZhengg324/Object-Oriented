@@ -12,4 +12,15 @@
     配合UML图实现一个图书馆借书系统，管理学生的校内校外借书和图书馆的采购
   </ul>
 <li>experiment是上机的实验</li>
+<li>博客</li>
+  <ul>
+    <li>Unit1</li>
+      https://bbs.csdn.net/topics/614140567?spm=1001.2014.3001.6377
+    <li>Unit2</li>
+      https://bbs.csdn.net/topics/614673508?spm=1001.2014.3001.6377
+    <li>Unit3</li>
+      https://bbs.csdn.net/topics/615393082?spm=1001.2014.3001.6377
+    <li>Unit4</li>
+      https://bbs.csdn.net/topics/616096639?spm=1001.2014.3001.6377
+  </ul>
 </ul>
